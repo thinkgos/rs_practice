@@ -87,11 +87,13 @@ const (
 	INSTANCE_ID = "instanceId"
 )
 
+// 默认参数
 const (
 	EnableSSL   = true
 	DefaultPort = 443
 )
 
+// Profile profile定义
 type Profile struct {
 	EndPoint          string
 	AuthParams        map[string]string
@@ -111,6 +113,7 @@ func newProfile(endPoint string) *Profile {
 	}
 }
 
+// NewDeviceProfile 新建一个device profile
 func NewDeviceProfile(endPoint, productKey, deviceName, deviceSecret, clientId string) *Profile {
 	p := newProfile(endPoint)
 	p.AuthParams[AUTH_TYPE] = AUTH_TYPE_DEVICE_NAME
@@ -122,6 +125,7 @@ func NewDeviceProfile(endPoint, productKey, deviceName, deviceSecret, clientId s
 	return p
 }
 
+// NewAppKeyProfile 新建一个AppKey profile
 func NewAppKeyProfile(endPoint, appKey, appSecret string) *Profile {
 	p := newProfile(endPoint)
 	p.AuthParams[AUTH_TYPE] = AUTH_TYPE_APP_KEY
@@ -131,23 +135,27 @@ func NewAppKeyProfile(endPoint, appKey, appSecret string) *Profile {
 	return p
 }
 
+// NewAccessKeyProfileToken 新建一个accessKey profile with token
 func NewAccessKeyProfileToken(endPoint, regionId, accessKey, accessSecret, stsToken string) *Profile {
 	p := newProfile(endPoint)
 	p.AuthParams[AUTH_TYPE] = AUTH_TYPE_ACCESS_KEY
 	p.AuthParams[PARAM_ACCESS_KEY] = accessKey
 	p.AuthParams[PARAM_ACCESS_SECRET] = accessSecret
 	p.AuthParams[REGION_ID] = regionId
-	p.AuthParams[PARAM_STS_TOKEN] = stsToken
+	if stsToken != "" {
+		p.AuthParams[PARAM_STS_TOKEN] = stsToken
+	}
 	p.MultiConnection = true
 	return p
 }
 
+// NewAccessKeyProfile 新建一个accessKey profile
 func NewAccessKeyProfile(endPoint, regionId, accessKey, accessSecret string) *Profile {
-	return NewAccessKeyProfileToken(endPoint, regionId, accessKey, accessSecret, nil)
+	return NewAccessKeyProfileToken(endPoint, regionId, accessKey, accessSecret, "")
 }
 
 // HostPort  获得hostname 和 port
-// 注意hostname可能为空字符串,port获取失败为默认端口443
+// NOTE: hostname可能为空字符串,port解析失败将返回默认端口443
 func (this *Profile) HostPort() (string, int) {
 	ur, err := url.Parse(this.EndPoint)
 	if err != nil {
