@@ -6,84 +6,37 @@ import (
 )
 
 const (
-	/**
-	 * 连接认证类型
-	 */
+	// 连接认证类型
 	AUTH_TYPE = "name"
-
-	/**
-	 * 使用AppKey连接
-	 */
+	// 使用AppKey连接
 	AUTH_TYPE_APP_KEY = "appkey"
-
-	/**
-	 * 使用阿里云AK连接
-	 */
+	// 使用阿里云AK连接
 	AUTH_TYPE_ACCESS_KEY = "aliyunak"
-
-	/**
-	 * 使用productKey和deviceName连接
-	 */
+	// 使用productKey和deviceName连接
 	AUTH_TYPE_DEVICE_NAME = "devicename"
-
-	/**
-	 * 使用AppKey方式连接，参数AppKey
-	 */
+	//使用AppKey方式连接，参数AppKey
 	PARAM_APP_KEY = "param-app-key"
-
-	/**
-	 * 使用AppKey方式连接，参数AppSecret
-	 */
+	// 使用AppKey方式连接，参数AppSecret
 	PARAM_APP_SECRET = "appSecret"
-
-	/**
-	 * 使用设备方式连接，productKey
-	 */
+	// 使用设备方式连接，productKey
 	PARAM_PRODUCT_KEY = "param-product-key"
-
-	/**
-	 * 使用设备方式连接，deviceName
-	 */
+	// 使用设备方式连接，deviceName
 	PARAM_DEVICE_NAME = "param-device-name"
-
-	/**
-	 * 使用设备方式连接，deviceSecret
-	 */
+	// 使用设备方式连接，deviceSecret
 	PARAM_DEVICE_SECRET = "deviceSecret"
-
-	/**
-	 * 使用设备方式连接，clientId
-	 */
+	// 使用设备方式连接，clientId
 	PARAM_CLIENT_ID = "param-client-id"
-
-	/**
-	 * 使用阿里云AK方式连接，region
-	 */
+	// 使用阿里云AK方式连接，region
 	REGION_ID = "regionId"
-
-	/**
-	 * 使用阿里云AK方式连接，accessKey
-	 */
+	// 使用阿里云AK方式连接，accessKey
 	PARAM_ACCESS_KEY = "accessKey"
-
-	/**
-	 * 使用阿里云AK方式连接，accessSecret
-	 */
+	// 使用阿里云AK方式连接，accessSecret
 	PARAM_ACCESS_SECRET = "accessSecret"
-
-	/**
-	 * 使用阿里云AK方式连接，accessKey
-	 */
+	// 使用阿里云AK方式连接，accessKey
 	PARAM_STS_TOKEN = "stsToken"
-
-	/**
-	 * 使用阿里云POP接口HOST
-	 */
+	// 使用阿里云POP接口HOST
 	PARAM_ALIYUNCS_HOST = "aliyuncs-host"
-
-	/**
-	 * 连接认证类型
-	 */
+	// 连接认证类型
 	INSTANCE_ID = "instanceId"
 )
 
