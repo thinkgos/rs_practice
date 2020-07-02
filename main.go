@@ -9,4 +9,5 @@ func main() {
 	fmt.Println("i just test merger")
 	log.Println("nothing to done")
 	fmt.Printf("hahah")
+	fmt.Println("oooo")
 }
