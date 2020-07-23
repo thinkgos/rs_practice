@@ -19,14 +19,22 @@ fn main() {
     println!("\tchange borrow value: {}.", s);
 
     // 悬垂引用（Dangling References）
+    println!("悬垂引用:");
+    println!("\tline 42");
     // dangle()
 
     // slice  没有所有权类型. slice 允许你引用集合中一段连续的元素序列，而不用引用整个集合。
+    println!("slice:");
+    let mut s = String::from("hello world");
+
+    let word = first_word(&s);
+    println!("\tthe first word is: {}", word);
+    s.clear(); // 错误!
 }
 
 // 将获取引用作为函数参数称为 借用（borrowing）,这里s就是借用.
 fn unchange_borrow(s: &String) -> usize {
-    // NOTE: 尝试修改借用的变量是行不通的,因为没有所有权. 如果需要修改,需要采用可变引用.
+    // NOTE: 尝试修改借用的不可变变量是行不通的,因为不可变. 如果需要修改,需要采用可变引用.
     // some_string.push_str(", world");
     // s 是对 String 的引用
     s.len()
@@ -51,3 +59,15 @@ fn change_borrow(some_string: &mut String) {
 //
 //     s
 // }
+
+fn first_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+
+    &s[..]
+}
