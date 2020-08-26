@@ -8,6 +8,7 @@ impl Rectangle {
     fn area(&self) -> u32 {
         self.width * self.height
     }
+    // 关联函数经常被用作返回一个结构体新实例的构造函数.
     fn square(size: u32) -> Rectangle {
         Rectangle {
             width: size,

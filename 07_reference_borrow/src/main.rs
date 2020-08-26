@@ -4,7 +4,7 @@ fn main() {
     // 2. 在任意给定时间 要么只能有一个可变引用,要么只能有多个不可变引用.
     // 4. 在特定作用域内 可以有多个可变引用(采用作用域隔开),但不能同时拥有.
 
-    //  引用: & 符号就是 引用,它们允许你使用值但不获取其所有权.
+    // 引用: & 符号就是引用,它们允许你使用值但不获取其所有权.
     // 不可变引用
     println!("借用 -> 不可变引用:");
     let s1 = String::from("hello");
@@ -55,9 +55,7 @@ fn change_borrow(some_string: &mut String) {
 
 // 采用所有权move,来避免 悬垂引用
 // fn no_dangle() -> String {
-//     let s = String::from("hello");
-//
-//     s
+//     String::from("hello")
 // }
 
 fn first_word(s: &str) -> &str {
