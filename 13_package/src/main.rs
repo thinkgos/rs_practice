@@ -1,4 +1,4 @@
-// 包名::模块::子模块
+// 包的crate::模块::子模块
 use restaurant::restaurant::{hosting, serving};
 
 fn main() {

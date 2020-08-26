@@ -1,4 +1,4 @@
-//1.Option是标准库定义的一个枚举，形式：
+//1.Option是标准库定义的一个枚举,形式：
 //enum Option<T> {
 //  Some(T),
 //  None,

@@ -13,7 +13,7 @@ struct Color(i32, i32, i32);
 struct Point {}
 
 fn main() {
-    // struct 是一个自定义数据类型，允许你命名和包装多个相关的值，从而形成一个有意义的组合
+    // struct 是一个自定义数据类型,允许你命名和包装多个相关的值,从而形成一个有意义的组合
     // 不允许只标记某个变量可变,只能标准整个结构体可变
     println!("struct:");
     let user1 = User {
