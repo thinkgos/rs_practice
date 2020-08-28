@@ -24,7 +24,7 @@ fn value_in_cents(coin: Coin) -> u8 {
             println!("State quarter from {:?}!", state);
             25
         }
-        _ => 100,
+        _ => 100, // 通匹配
     }
 }
 
