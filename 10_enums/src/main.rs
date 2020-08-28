@@ -3,7 +3,6 @@ enum IpAddrKind {
     V4,
     V6,
 }
-
 struct IpAddr {
     kind: IpAddrKind,
     address: String,
@@ -15,7 +14,7 @@ enum IpAddr2 {
     V6(String),
 }
 
-//3.可以是不同类型
+//3.也可以是不同类型
 enum IpAddr3 {
     V4(u8, u8, u8, u8),
     V6(String),
