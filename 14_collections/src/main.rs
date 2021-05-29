@@ -24,6 +24,8 @@ fn main() {
     let text = "hello world wonderful world";
     let mut map = HashMap::new();
     for word in text.split_whitespace() {
+        // Entry 的 or_insert 方法在键对应的值存在时就返回这个值的 Entry
+        // 如果不存在则将参数作为新值插入并返回修改过的 Entry
         let count = map.entry(word).or_insert(0);
         *count += 1;
     }
