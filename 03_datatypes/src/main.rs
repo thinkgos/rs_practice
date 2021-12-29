@@ -22,12 +22,13 @@ fn main() {
     let tup: (i32, f64, u8) = (500, 6.4, 1);
     // 可使用 '.'访问
     println!("\ttup: ({}, {}, {})", tup.0, tup.1, tup.2);
-    // 也可以使用模式匹配(pattern matching)来解构(destructure)元组值
+    // 可使用模式匹配(pattern matching)来解构(destructure)元组值
     let (x, y, z) = tup; // 解构
     println!("\ttup: ({}, {}, {})", x, y, z);
 
     println!("数组:");
     // 数组: 固定长度的,一旦声明,它们的长度不能增长或缩小.
+    // 类型声明方式: [类型；长度]
     // 操作和其它语言一致
     let a = [1, 2, 3, 4, 5];
     let element = a[0];
@@ -35,7 +36,8 @@ fn main() {
     // 在方括号中包含每个元素的类型,后跟分号,再后跟数组元素的数量.
     let a: [i32; 5] = [1, 2, 3, 4, 5];
     println!("\tThe value of element is: {:?}", a);
-    // 如果你希望创建一个每个元素都相同的数组,可以在中括号内指定其初始值,后跟分号,再后跟数组的长度
+    // 如果你希望创建一个每个元素都相同的数组,[初始值;长度]
+    // 可以在中括号内指定其初始值,后跟分号,再后跟数组的长度
     let a = [3; 5];
     println!("\tThe value of element is: {:?}", a);
 }

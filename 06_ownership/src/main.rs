@@ -11,8 +11,8 @@ fn main() {
         // 内部s1作用域开始
         let s1 = "internal hello";
         println!("\tgot it internal s1 {}", s1);
-    } // 内部s作用域结束
-      // println!("\tgot it internal s1 {}", s1); // s1 超出作用域了
+    } // 内部s1作用域结束
+    // println!("\tgot it internal s1 {}", s1); // s1 超出作用域了
     println!("\tgot it {}", s);
 
     // 演示所有权的规则
@@ -25,17 +25,6 @@ fn main() {
     str.push_str(" world!");
     println!("\t动态编码: {}", str);
 
-    // 所有权转移(move)
-    println!("所有权move:");
-    let str2 = str; // 浅拷贝,并使str无效. 称之为move.
-                    // println!("\str已被转移: {}", str); 编译错误,str不再有对应内存的所有权,已被转移至str2
-    println!("\t转移给str2: {}", str2);
-    println!("clone深度复制数据:");
-    // 可以采用深度复制数据,而不是转移所有权
-    let str3 = str2.clone();
-    println!("\t被clone数据: {}", str2);
-    println!("\tclone数据: {}", str3);
-
     // NOTE: 栈上 Copy 操作,不涉及move
     // 所有整数类型,比如 u32.
     // 布尔类型bool,它的值是 true 和 false.
@@ -44,16 +33,27 @@ fn main() {
     // 元组,当且仅当其包含的类型也都是 Copy 的时候
     //          比如,(i32, i32) 是Copy的
     //          但 (i32, String) 就不是.
-    println!("栈上拷贝:");
+    println!("栈上拷贝, 无所有权:");
     let x = 5;
     let y = x;
     println!("\tx = {}, y = {}", x, y);
+
+    // 所有权转移(move)
+    println!("所有权move:");
+    let str2 = str; // 浅拷贝,并使str无效. 称之为move.
+    // println!("\str已被转移: {}", str); 编译错误,str不再有对应内存的所有权,已被转移至str2
+    println!("\t转移给str2: {}", str2);
+    println!("clone深度复制数据:");
+    // 可以采用深度复制数据,而不是转移所有权
+    let str3 = str2.clone();
+    println!("\t被clone数据: {}", str2);
+    println!("\tclone数据: {}", str3);
 
     // 函数
     println!("所有权与函数:");
     let s = String::from("hello"); // s 进入作用域
     takes_ownership(s); // s 的值所有权移动到函数里
-                        // println!("{}", s); 所以s到这里没有所有权,不再有效,
+    // println!("{}", s); 所以s到这里没有所有权,不再有效,
 
     let x = 5; // x 进入作用域
     makes_copy(x); // x 应该移动函数里,
@@ -68,7 +68,7 @@ fn main() {
 
     let s2 = String::from("takes_and_gives_back"); // s2 进入作用域
     let s3 = takes_and_gives_back(s2); //
-                                       // println!("{}", s2); // s2 被移动到 takes_and_gives_back 中,s2没有对应内存所有权
+    // println!("{}", s2); // s2 被移动到 takes_and_gives_back 中,s2没有对应内存所有权
     println!(
         "\ts2数据move给函数内部,函数内部转移另一个所有权数据给s3: {}",
         s3

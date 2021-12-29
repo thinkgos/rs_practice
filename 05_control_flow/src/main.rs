@@ -49,6 +49,7 @@ fn main() {
     for element in a.iter() {
         println!("\tfor -> the value is: {}", element);
     }
+
     // 倒计
     for number in (1..4).rev() {
         println!("\tfor -> {}!", number);

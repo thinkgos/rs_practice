@@ -25,3 +25,7 @@ fn five(x: i32) -> i32 {
     println!("\tThe function arg is: {}", x);
     5
 }
+
+fn four(x: i32) -> i32 {
+    6
+}

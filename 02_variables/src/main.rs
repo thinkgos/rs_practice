@@ -13,9 +13,11 @@ fn main() {
     y = 6; // NOTE: 可变变量,可修改
     println!("\tThe value of y is: {}", y);
 
-    // 常量
     // 不允许对常量使用mut.
-    // Rust 常量的命名规范是使用下划线分隔的大写字母单词,并且可以在数字字面值中插入下划线来提升可读性
+    // Rust 常量的命名规范是
+    // 使用下划线分隔的大写字母单词
+    // 只可以绑定到常量表达式,无法绑定到函数调用结果或只能在运行时才能计算的值
+    // 可以在数字字面值中插入下划线来提升可读性
     println!("常量:");
     const MAX_POINTS: u32 = 100_000;
     println!("\tThe value of MAX_POINTS is: {}", MAX_POINTS);
