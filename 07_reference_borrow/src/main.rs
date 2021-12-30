@@ -28,8 +28,8 @@ fn main() {
     let mut s = String::from("hello world");
 
     let word = first_word(&s);
+    // s.clear(); // 错误! 因为s已被不可变变量引用, 所以不可以clear
     println!("\tthe first word is: {}", word);
-    s.clear(); // 错误!
 }
 
 // 将获取引用作为函数参数称为 借用(borrowing),这里s就是借用.

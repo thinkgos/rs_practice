@@ -27,5 +27,5 @@ fn main() {
         "The area of the rectangle is {} square pixels.",
         rect1.area()
     );
-    println!("{:?}", Rectangle::square(10))
+    println!("{:#?}", Rectangle::square(10))
 }

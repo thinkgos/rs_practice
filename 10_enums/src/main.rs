@@ -1,20 +1,25 @@
 //1. c语言的方式定义
+#[derive(Debug)]
 enum IpAddrKind {
     V4,
     V6,
 }
+
+#[derive(Debug)]
 struct IpAddr {
     kind: IpAddrKind,
     address: String,
 }
 
 //2. rust语言提倡的方式定义
+#[derive(Debug)]
 enum IpAddr2 {
     V4(String),
     V6(String),
 }
 
 //3.也可以是不同类型
+#[derive(Debug)]
 enum IpAddr3 {
     V4(u8, u8, u8, u8),
     V6(String),
@@ -54,17 +59,27 @@ fn main() {
         kind: IpAddrKind::V4,
         address: String::from("127.0.0.1"),
     };
-
     let i2 = IpAddr {
         kind: IpAddrKind::V6,
         address: String::from("::1"),
     };
+    println!("c语言方式:");
+    println!("{:#?}", i1);
+    println!("{:#?}", i2);
 
     let i1 = IpAddr2::V4(String::from("127.0.0.1"));
     let i2 = IpAddr2::V6(String::from("::1"));
+    println!("rust语言方式:");
+    println!("{:#?}", i1);
+    println!("{:#?}", i2);
 
     let i1 = IpAddr3::V4(127, 0, 0, 1);
     let i2 = IpAddr3::V6(String::from("::1"));
+
+    println!("枚举成员也可以是不同类型:");
+    println!("{:#?}", i1);
+    println!("{:#?}", i2);
+
 
     let quit = Message::Quit;
     quit.print();
