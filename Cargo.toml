@@ -1,0 +1,23 @@
+[workspace]
+
+members = [
+    "a01_helloworld",
+    "a02_variables",
+    "a03_datatypes",
+    "a04_function",
+    "a05_control_flow",
+    "a06_ownership",
+    "a07_reference_borrow",
+    "a08_structs",
+    "a09_method_syntax",
+    "a10_enums",
+    "a11_opiton",
+    "a12_match",
+    "a13_package",
+    "a14_collections",
+    "a15_error",
+    "a16_typeinto",
+    "a20_lifecycle",
+    "a21_closure",
+    "a22_my_macro"
+]
