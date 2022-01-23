@@ -19,5 +19,7 @@ members = [
     "a16_typeinto",
     "a20_lifecycle",
     "a21_closure",
-    "a22_my_macro"
+    "a22_my_macro",
+    "a23_format_output",
+    "a40_commandline"
 ]
