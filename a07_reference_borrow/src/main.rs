@@ -1,26 +1,26 @@
 fn main() {
-    // 引用与借用
+    // @@ 引用与借用
     // 1. 引用必须总是有效的. ---> 主要指悬垂引用
     // 2. 在任意给定时间 要么只能有一个可变引用,要么只能有多个不可变引用.
     // 4. 在特定作用域内 可以有多个可变引用(采用作用域隔开),但不能同时拥有.
 
     // 引用: & 符号就是引用,它们允许你使用值但不获取其所有权.
-    // 不可变引用
+    // --> 不可变引用
     println!("借用 -> 不可变引用:");
     let s1 = String::from("hello");
     let len = unchange_borrow(&s1);
     println!("\tunchange borrow value '{}' length is {}.", s1, len);
 
-    // 可变引用
+    // --> 可变引用
     println!("借用 -> 可变引用:");
     // NOTE: 在特定作用域中的特定数据有且只有一个可变引用.
     let mut s = String::from("hello");
     change_borrow(&mut s);
     println!("\tchange borrow value: {}.", s);
 
-    // 悬垂引用(Dangling References)
+    // --> 悬垂引用(Dangling References)
     println!("悬垂引用:");
-    println!("\tline 42");
+    println!("\tline 48-59");
     // dangle()
 
     // slice  没有所有权类型. slice 允许你引用集合中一段连续的元素序列,而不用引用整个集合.

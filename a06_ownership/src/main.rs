@@ -1,19 +1,19 @@
 fn main() {
-    // 所有权规则:
+    // @@ 所有权规则:
     // 1. Rust 中的每一个值都有一个被称为其所有者(owner)的变量.
     // 2. 值有且只有一个所有者.
     // 3. 当所有者(变量)离开作用域(scope),这个值将被丢弃.
 
-    // 作用域(scope)
+    // @@ 作用域(scope)
     println!("作用域:");
     let s = "hello";
     {
         // 内部s1作用域开始
         let s1 = "internal hello";
-        println!("\tgot it internal s1 {}", s1);
+        println!("\tgot it (s1) {}", s1);
     } // 内部s1作用域结束
     // println!("\tgot it internal s1 {}", s1); // s1 超出作用域了
-    println!("\tgot it {}", s);
+    println!("\tgot it(s) {}", s);
 
     // 演示所有权的规则
     // string
@@ -25,7 +25,7 @@ fn main() {
     str.push_str(" world!");
     println!("\t动态编码: {}", str);
 
-    // NOTE: 栈上 Copy 操作,不涉及move
+    // --> 栈上 Copy 操作,不涉及move
     // 所有整数类型,比如 u32.
     // 布尔类型bool,它的值是 true 和 false.
     // 所有浮点数类型,比如 f64.
@@ -38,7 +38,7 @@ fn main() {
     let y = x;
     println!("\tx = {}, y = {}", x, y);
 
-    // 所有权转移(move)
+    // --> 所有权转移(move)
     println!("所有权move:");
     let str2 = str; // 浅拷贝,并使str无效. 称之为move.
     // println!("\str已被转移: {}", str); 编译错误,str不再有对应内存的所有权,已被转移至str2

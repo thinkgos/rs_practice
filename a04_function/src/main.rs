@@ -37,7 +37,8 @@ fn four(x: i32) -> i32 {
 
 // 无返回值 ()
 fn empty() -> () {}
+
 // 永不返回的发散函数 !
-fn forever() -> !{
-    loop{}
+fn forever() {
+    loop {}
 }
