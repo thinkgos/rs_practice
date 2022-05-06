@@ -17,6 +17,7 @@ members = [
     "a14_collections",
     "a15_error",
     "a16_typeinto",
+    "a17_minigrep",
     "a20_lifecycle",
     "a21_closure",
     "a22_my_macro",

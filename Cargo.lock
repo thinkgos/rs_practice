@@ -70,6 +70,10 @@ name = "a16_typeinto"
 version = "0.1.0"
 
 [[package]]
+name = "a17_minigrep"
+version = "0.1.0"
+
+[[package]]
 name = "a20_lifecycle"
 version = "0.1.0"
 
