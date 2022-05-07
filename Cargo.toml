@@ -23,5 +23,6 @@ members = [
     "a22_my_macro",
     "a23_format_output",
     "a39_async_await",
-    "a40_commandline"
+    "a40_commandline",
+    "a41_owner_borrow",
 ]
