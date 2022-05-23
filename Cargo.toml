@@ -25,4 +25,6 @@ members = [
     "a39_async_await",
     "a40_commandline",
     "a41_owner_borrow",
+    "a50_serde",
+    "a51_axum"
 ]
