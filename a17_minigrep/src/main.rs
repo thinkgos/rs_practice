@@ -1,3 +1,12 @@
+use std::collections::HashMap;
+
 fn main() {
-    println!("Hello, world!");
+    let mut scope = HashMap::new();
+    scope.insert(String::from("a"), "b");
+    scope.insert("c".to_string(), "d");
+
+    for (k, v) in &scope {
+        println!("{}:{}", k, v);
+    }
+    println!("{:?}", scope);
 }

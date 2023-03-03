@@ -27,5 +27,6 @@ members = [
     "a41_owner_borrow",
     "a50_serde",
     "a51_axum",
-    "a52_chrono"
+    "a52_chrono",
+    "a53_log4"
 ]
