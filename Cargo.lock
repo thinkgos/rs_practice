@@ -3,152 +3,6 @@
 version = 3
 
 [[package]]
-name = "a01_helloworld"
-version = "0.1.0"
-
-[[package]]
-name = "a02_variables"
-version = "0.1.0"
-
-[[package]]
-name = "a03_datatypes"
-version = "0.1.0"
-
-[[package]]
-name = "a04_function"
-version = "0.1.0"
-
-[[package]]
-name = "a05_control_flow"
-version = "0.1.0"
-
-[[package]]
-name = "a06_ownership"
-version = "0.1.0"
-
-[[package]]
-name = "a07_reference_borrow"
-version = "0.1.0"
-
-[[package]]
-name = "a08_structs"
-version = "0.1.0"
-
-[[package]]
-name = "a09_method_syntax"
-version = "0.1.0"
-
-[[package]]
-name = "a10_enums"
-version = "0.1.0"
-
-[[package]]
-name = "a11_opiton"
-version = "0.1.0"
-
-[[package]]
-name = "a12_match"
-version = "0.1.0"
-
-[[package]]
-name = "a13_package"
-version = "0.1.0"
-dependencies = [
- "restaurant",
-]
-
-[[package]]
-name = "a14_collections"
-version = "0.1.0"
-
-[[package]]
-name = "a15_error"
-version = "0.1.0"
-
-[[package]]
-name = "a16_typeinto"
-version = "0.1.0"
-
-[[package]]
-name = "a17_minigrep"
-version = "0.1.0"
-
-[[package]]
-name = "a20_lifecycle"
-version = "0.1.0"
-
-[[package]]
-name = "a21_closure"
-version = "0.1.0"
-
-[[package]]
-name = "a22_my_macro"
-version = "0.1.0"
-dependencies = [
- "hello_macro",
- "hello_macro_derive",
-]
-
-[[package]]
-name = "a23_format_output"
-version = "0.1.0"
-
-[[package]]
-name = "a39_async_await"
-version = "0.1.0"
-dependencies = [
- "futures",
-]
-
-[[package]]
-name = "a40_commandline"
-version = "0.1.0"
-dependencies = [
- "clap 3.2.25",
- "num_cpus",
- "url",
-]
-
-[[package]]
-name = "a41_owner_borrow"
-version = "0.1.0"
-
-[[package]]
-name = "a50_serde"
-version = "0.1.0"
-dependencies = [
- "serde",
- "serde_json",
-]
-
-[[package]]
-name = "a51_axum"
-version = "0.1.0"
-dependencies = [
- "axum",
- "serde",
- "serde_json",
- "tokio",
- "tracing",
- "tracing-subscriber",
-]
-
-[[package]]
-name = "a52_chrono"
-version = "0.1.0"
-dependencies = [
- "chrono",
-]
-
-[[package]]
-name = "a53_log4"
-version = "0.1.0"
-dependencies = [
- "log",
- "log4rs",
-]
-
-[[package]]
 name = "addr2line"
 version = "0.19.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -279,10 +133,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "at_ex"
-version = "0.1.0"
-
-[[package]]
 name = "atty"
 version = "0.2.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -298,6 +148,152 @@ name = "autocfg"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
+
+[[package]]
+name = "ax01"
+version = "0.1.0"
+
+[[package]]
+name = "ax02"
+version = "0.1.0"
+
+[[package]]
+name = "ax03"
+version = "0.1.0"
+
+[[package]]
+name = "ax04"
+version = "0.1.0"
+
+[[package]]
+name = "ax05"
+version = "0.1.0"
+
+[[package]]
+name = "ax06"
+version = "0.1.0"
+
+[[package]]
+name = "ax07"
+version = "0.1.0"
+
+[[package]]
+name = "ax08"
+version = "0.1.0"
+
+[[package]]
+name = "ax09"
+version = "0.1.0"
+
+[[package]]
+name = "ax10"
+version = "0.1.0"
+
+[[package]]
+name = "ax11"
+version = "0.1.0"
+
+[[package]]
+name = "ax12"
+version = "0.1.0"
+
+[[package]]
+name = "ax13"
+version = "0.1.0"
+dependencies = [
+ "restaurant",
+]
+
+[[package]]
+name = "ax14"
+version = "0.1.0"
+
+[[package]]
+name = "ax15"
+version = "0.1.0"
+
+[[package]]
+name = "ax16"
+version = "0.1.0"
+
+[[package]]
+name = "ax17"
+version = "0.1.0"
+
+[[package]]
+name = "ax20"
+version = "0.1.0"
+
+[[package]]
+name = "ax21"
+version = "0.1.0"
+
+[[package]]
+name = "ax22"
+version = "0.1.0"
+dependencies = [
+ "hello_macro",
+ "hello_macro_derive",
+]
+
+[[package]]
+name = "ax23"
+version = "0.1.0"
+
+[[package]]
+name = "ax39"
+version = "0.1.0"
+dependencies = [
+ "futures",
+]
+
+[[package]]
+name = "ax40"
+version = "0.1.0"
+dependencies = [
+ "clap 3.2.25",
+ "num_cpus",
+ "url",
+]
+
+[[package]]
+name = "ax41"
+version = "0.1.0"
+
+[[package]]
+name = "ax50"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "ax51"
+version = "0.1.0"
+dependencies = [
+ "axum",
+ "serde",
+ "serde_json",
+ "tokio",
+ "tracing",
+ "tracing-subscriber",
+]
+
+[[package]]
+name = "ax52"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+]
+
+[[package]]
+name = "ax53"
+version = "0.1.0"
+dependencies = [
+ "log",
+ "log4rs",
+]
 
 [[package]]
 name = "axum"
