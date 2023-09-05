@@ -1,6 +1,3 @@
-#![feature(is_some_and)]
-#![feature(result_flattening)]
-
 #[cfg(test)]
 mod tests {
     use std::str::FromStr;
@@ -82,20 +79,6 @@ mod tests {
         let v_err: Result<Option<i32>, SomeErr> = Err(SomeErr);
         assert_eq!(v_err.transpose(), Some(Err(SomeErr)));
     }
-    #[test]
-    fn result_to_result() {
-        // flatten 从一个对象中剥离一层嵌套的 Result<Result<T,E>,E>
-        // 注意: 只支持剥离一层
-        let x: Result<Result<&'static str, u32>, u32> = Ok(Ok("hello"));
-        assert_eq!(Ok("hello"), x.flatten());
-        let x: Result<Result<&'static str, u32>, u32> = Ok(Err(6));
-        assert_eq!(Err(6), x.flatten());
-        let x: Result<Result<&'static str, u32>, u32> = Err(6);
-        assert_eq!(Err(6), x.flatten());
-        // flatten 多层剥离
-        let x: Result<Result<Result<&'static str, u32>, u32>, u32> = Ok(Ok(Ok("hello")));
-        assert_eq!(Ok("hello"), x.flatten().flatten());
-    }
 
     #[test]
     fn result_map_result() {
@@ -104,8 +87,8 @@ mod tests {
         // map_err 通过将提供的函数将 Result<T, E> 转换为 Result<T, F> 的值, Ok(x) 值不变，
 
         // 这些方法将 Result<T, E> 转换为不同类型 U 的值：
-        // map_or 通过将 提供的函数 将 Result<T, E> 转换为 U = f(T) 的值,   Err 值返回提供 default 的值，
-        // map_or 通过将提供的函数将 Result<T, E> 转换为 U = f(T) 的值, Err 值使用提供的 default 函数返回的值
+        // map_or 通过 提供的函数 将 Result<T, E> 转换为 U = f(T) 的值, Err 值返回提供 default 的值，
+        // map_or_else 通过提供的函数将 Result<T, E> 转换为 U = f(T) 的值, Err 值使用提供的 default 函数返回的值
     }
 
     #[test]
@@ -206,5 +189,25 @@ mod tests {
         let v_all_ok = [Ok(1), Ok(2), Ok(21)];
         let res: Result<i32, &str> = v_all_ok.into_iter().product();
         assert_eq!(res, Ok(42));
+    }
+}
+
+// nightly
+#[cfg(feature = "nightly")]
+#[cfg(test)]
+mod tests_nightly {
+    #[test]
+    fn result_to_result() {
+        // flatten 从一个对象中剥离一层嵌套的 Result<Result<T,E>,E>
+        // 注意: 只支持剥离一层
+        let x: Result<Result<&'static str, u32>, u32> = Ok(Ok("hello"));
+        assert_eq!(Ok("hello"), x.flatten());
+        let x: Result<Result<&'static str, u32>, u32> = Ok(Err(6));
+        assert_eq!(Err(6), x.flatten());
+        let x: Result<Result<&'static str, u32>, u32> = Err(6);
+        assert_eq!(Err(6), x.flatten());
+        // flatten 多层剥离
+        let x: Result<Result<Result<&'static str, u32>, u32>, u32> = Ok(Ok(Ok("hello")));
+        assert_eq!(Ok("hello"), x.flatten().flatten());
     }
 }

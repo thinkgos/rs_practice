@@ -612,15 +612,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "clap_ex"
-version = "0.1.0"
-dependencies = [
- "assert_cmd",
- "clap 4.1.8",
- "predicates",
-]
-
-[[package]]
 name = "clap_lex"
 version = "0.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -699,14 +690,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "compression_ex"
-version = "0.1.0"
-dependencies = [
- "flate2",
- "tar",
-]
-
-[[package]]
 name = "config"
 version = "0.13.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -723,14 +706,6 @@ dependencies = [
  "serde_json",
  "toml",
  "yaml-rust",
-]
-
-[[package]]
-name = "config_ex"
-version = "0.1.0"
-dependencies = [
- "config",
- "lazy_static",
 ]
 
 [[package]]
@@ -860,13 +835,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "crossbeam_ex"
-version = "0.1.0"
-dependencies = [
- "crossbeam",
-]
-
-[[package]]
 name = "crossterm"
 version = "0.25.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -899,18 +867,6 @@ checksum = "1bfb12502f3fc46cca1bb51ac28df9d618d813cdc3d2f25b9fe775a34af26bb3"
 dependencies = [
  "generic-array",
  "typenum",
-]
-
-[[package]]
-name = "cryptography_ex"
-version = "0.1.0"
-dependencies = [
- "base64 0.21.0",
- "base64-url",
- "data-encoding",
- "hex",
- "md5",
- "ring",
 ]
 
 [[package]]
@@ -997,13 +953,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "derive_more_ex"
-version = "0.1.0"
-dependencies = [
- "derive_more",
-]
-
-[[package]]
 name = "destructure_traitobject"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1026,14 +975,6 @@ dependencies = [
  "shell-words",
  "tempfile",
  "zeroize",
-]
-
-[[package]]
-name = "dialoguer_ex"
-version = "0.1.0"
-dependencies = [
- "console",
- "dialoguer",
 ]
 
 [[package]]
@@ -1092,13 +1033,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "77c90badedccf4105eca100756a0b1289e191f6fcbdadd3cee1d2f614f97da8f"
 
 [[package]]
-name = "dotenv_ex"
-version = "0.1.0"
-dependencies = [
- "dotenv",
-]
-
-[[package]]
 name = "dyn-clone"
 version = "1.0.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1138,10 +1072,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "env_ex"
-version = "0.1.0"
-
-[[package]]
 name = "env_logger"
 version = "0.9.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1173,13 +1103,6 @@ checksum = "aa68f1b12764fab894d2755d2518754e71b4fd80ecfb822714a1206c2aab39bf"
 dependencies = [
  "cc",
  "libc",
-]
-
-[[package]]
-name = "error_anyhow_ex"
-version = "0.1.0"
-dependencies = [
- "anyhow",
 ]
 
 [[package]]
@@ -1463,10 +1386,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "hash_ex"
-version = "0.1.0"
-
-[[package]]
 name = "hash_hasher"
 version = "2.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1566,13 +1485,6 @@ name = "http-range-header"
 version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "add0ab9360ddbd88cfeb3bd9574a1d85cfdfa14db10b3e21d3700dbc4328758f"
-
-[[package]]
-name = "http_ex"
-version = "0.1.0"
-dependencies = [
- "http",
-]
 
 [[package]]
 name = "httparse"
@@ -1712,15 +1624,6 @@ dependencies = [
  "number_prefix",
  "portable-atomic",
  "unicode-width",
-]
-
-[[package]]
-name = "indicatif_ex"
-version = "0.1.0"
-dependencies = [
- "console",
- "indicatif",
- "rand",
 ]
 
 [[package]]
@@ -1884,6 +1787,200 @@ dependencies = [
 ]
 
 [[package]]
+name = "lib02"
+version = "0.1.0"
+dependencies = [
+ "assert_cmd",
+ "clap 4.1.8",
+ "predicates",
+]
+
+[[package]]
+name = "lib03"
+version = "0.1.0"
+dependencies = [
+ "flate2",
+ "tar",
+]
+
+[[package]]
+name = "lib05"
+version = "0.1.0"
+dependencies = [
+ "crossbeam",
+]
+
+[[package]]
+name = "lib06"
+version = "0.1.0"
+dependencies = [
+ "derive_more",
+]
+
+[[package]]
+name = "lib07"
+version = "0.1.0"
+dependencies = [
+ "console",
+ "dialoguer",
+]
+
+[[package]]
+name = "lib08"
+version = "0.1.0"
+dependencies = [
+ "dotenv",
+]
+
+[[package]]
+name = "lib09"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+]
+
+[[package]]
+name = "lib10"
+version = "0.1.0"
+
+[[package]]
+name = "lib11"
+version = "0.1.0"
+dependencies = [
+ "http",
+]
+
+[[package]]
+name = "lib12"
+version = "0.1.0"
+dependencies = [
+ "console",
+ "indicatif",
+ "rand",
+]
+
+[[package]]
+name = "lib13"
+version = "0.1.0"
+dependencies = [
+ "env_logger",
+ "log",
+]
+
+[[package]]
+name = "lib14"
+version = "0.1.0"
+dependencies = [
+ "lazy_static",
+ "once_cell",
+]
+
+[[package]]
+name = "lib15"
+version = "0.1.0"
+dependencies = [
+ "color-eyre",
+ "polars",
+ "rand",
+ "reqwest",
+]
+
+[[package]]
+name = "lib16"
+version = "0.1.0"
+dependencies = [
+ "bytes",
+ "prost",
+ "prost-build",
+]
+
+[[package]]
+name = "lib17"
+version = "0.1.0"
+dependencies = [
+ "rand",
+ "rand_distr",
+]
+
+[[package]]
+name = "lib18"
+version = "0.1.0"
+dependencies = [
+ "semver",
+]
+
+[[package]]
+name = "lib19"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "serde_json",
+ "serde_yaml 0.9.19",
+]
+
+[[package]]
+name = "lib20"
+version = "0.1.0"
+dependencies = [
+ "strum",
+]
+
+[[package]]
+name = "lib21"
+version = "0.1.0"
+dependencies = [
+ "tera",
+]
+
+[[package]]
+name = "lib22"
+version = "0.1.0"
+dependencies = [
+ "typed-builder",
+]
+
+[[package]]
+name = "lib23"
+version = "0.1.0"
+dependencies = [
+ "url",
+]
+
+[[package]]
+name = "lib24"
+version = "0.1.0"
+dependencies = [
+ "uuid",
+]
+
+[[package]]
+name = "lib25"
+version = "0.1.0"
+dependencies = [
+ "zip",
+]
+
+[[package]]
+name = "lib26"
+version = "0.1.0"
+dependencies = [
+ "base64 0.21.0",
+ "base64-url",
+ "data-encoding",
+ "hex",
+ "md5",
+ "ring",
+]
+
+[[package]]
+name = "lib4"
+version = "0.1.0"
+dependencies = [
+ "config",
+ "lazy_static",
+]
+
+[[package]]
 name = "libc"
 version = "0.2.147"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1966,14 +2063,6 @@ dependencies = [
  "thread-id",
  "typemap-ors",
  "winapi",
-]
-
-[[package]]
-name = "logging_ex"
-version = "0.1.0"
-dependencies = [
- "env_logger",
- "log",
 ]
 
 [[package]]
@@ -2231,14 +2320,6 @@ name = "once_cell"
 version = "1.17.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b7e5500299e16ebb147ae15a00a942af264cf3688f47923b8fc2cd5858f23ad3"
-
-[[package]]
-name = "once_cell_ex"
-version = "0.1.0"
-dependencies = [
- "lazy_static",
- "once_cell",
-]
 
 [[package]]
 name = "opaque-debug"
@@ -2690,16 +2771,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "polars_ex"
-version = "0.1.0"
-dependencies = [
- "color-eyre",
- "polars",
- "rand",
- "reqwest",
-]
-
-[[package]]
 name = "portable-atomic"
 version = "0.3.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2839,15 +2910,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "prost_ex"
-version = "0.1.0"
-dependencies = [
- "bytes",
- "prost",
- "prost-build",
-]
-
-[[package]]
 name = "quote"
 version = "1.0.33"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2894,14 +2956,6 @@ checksum = "32cb0b9bc82b0a0876c2dd994a7e7a2683d3e7390ca40e6886785ef0c7e3ee31"
 dependencies = [
  "num-traits",
  "rand",
-]
-
-[[package]]
-name = "rand_ex"
-version = "0.1.0"
-dependencies = [
- "rand",
- "rand_distr",
 ]
 
 [[package]]
@@ -3150,13 +3204,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "58bc9567378fc7690d6b2addae4e60ac2eeea07becb2c64b9f218b53865cba2a"
 
 [[package]]
-name = "semver_ex"
-version = "0.1.0"
-dependencies = [
- "semver",
-]
-
-[[package]]
 name = "serde"
 version = "1.0.153"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3184,15 +3231,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 1.0.109",
-]
-
-[[package]]
-name = "serde_ex"
-version = "0.1.0"
-dependencies = [
- "serde",
- "serde_json",
- "serde_yaml 0.9.19",
 ]
 
 [[package]]
@@ -3416,6 +3454,10 @@ name = "st09"
 version = "0.1.0"
 
 [[package]]
+name = "st10"
+version = "0.1.0"
+
+[[package]]
 name = "static_assertions"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3440,13 +3482,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "063e6045c0e62079840579a7e47a355ae92f60eb74daaf156fb1e84ba164e63f"
 dependencies = [
  "strum_macros",
-]
-
-[[package]]
-name = "strum_ex"
-version = "0.1.0"
-dependencies = [
- "strum",
 ]
 
 [[package]]
@@ -3540,13 +3575,6 @@ dependencies = [
  "serde_json",
  "slug",
  "unic-segment",
-]
-
-[[package]]
-name = "tera_ex"
-version = "0.1.0"
-dependencies = [
- "tera",
 ]
 
 [[package]]
@@ -3855,13 +3883,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "typed_builder_ex"
-version = "0.1.0"
-dependencies = [
- "typed-builder",
-]
-
-[[package]]
 name = "typemap-ors"
 version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4002,13 +4023,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "url_ex"
-version = "0.1.0"
-dependencies = [
- "url",
-]
-
-[[package]]
 name = "uuid"
 version = "1.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4028,13 +4042,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 1.0.109",
-]
-
-[[package]]
-name = "uuid_ex"
-version = "0.1.0"
-dependencies = [
- "uuid",
 ]
 
 [[package]]
@@ -4347,13 +4354,6 @@ dependencies = [
  "sha1",
  "time 0.3.20",
  "zstd",
-]
-
-[[package]]
-name = "zip_ex"
-version = "0.1.0"
-dependencies = [
- "zip",
 ]
 
 [[package]]

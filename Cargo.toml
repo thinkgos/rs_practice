@@ -29,42 +29,49 @@ members = [
     "course/ax51_axum",
     "course/ax52_chrono",
     "course/ax53_log4",
-    "standard/st01_default",
-    "standard/st02_error",
-    "standard/st03_ffi",
-    "standard/st04_iter",
-    "standard/st05_mem",
-    "standard/st06_option",
-    "standard/st07_path",
-    "standard/st08_result",
-    "standard/st09_time",
+
+    "standard/st01_default", # default trait
+    "standard/st02_error",   # thiserror crate
+    "standard/st03_ffi",     # ffi
+    "standard/st04_iter",    # iter
+    "standard/st05_mem",     # mem
+    "standard/st06_option",  # option
+    "standard/st07_path",    # path
+    "standard/st08_result",  # result
+    "standard/st09_time",    # time
+    "standard/st10_env",
+
+    "libraries/lib01_chrono",
+    "libraries/lib02_clap",
+    "libraries/lib03_compression",
+    "libraries/lib04_config",
+    "libraries/lib05_crossbeam",
+    "libraries/lib06_derive_more",
+    "libraries/lib07_dialoguer",
+    "libraries/lib08_dotenv",
+    "libraries/lib09_error_anyhow",
+    "libraries/lib10_hash",
+    "libraries/lib11_http",
+    "libraries/lib12_indicatif",
+    "libraries/lib13_logging",
+    "libraries/lib14_once_cell",
+    "libraries/lib15_polars",
+    "libraries/lib16_prost",
+    "libraries/lib17_rand",
+    "libraries/lib18_semver",
+    "libraries/lib19_serde",
+    "libraries/lib20_strum",
+    "libraries/lib21_tera",
+    "libraries/lib22_typed_builder",
+    "libraries/lib23_url",
+    "libraries/lib24_uuid",
+    "libraries/lib25_zip",
+    "libraries/lib26_cryptography",
 
     "algorithms",
-    "libraries/lib01_chrono",
-    "libraries/clap_ex",
-    "libraries/compression_ex",
-    "libraries/config_ex",
-    "libraries/crossbeam_ex",
-    "libraries/cryptography_ex",
-    "libraries/derive_more_ex",
-    "libraries/dialoguer_ex",
-    "libraries/dotenv_ex",
-    "libraries/env_ex",
-    "libraries/error_anyhow_ex",
-    "libraries/hash_ex",
-    "libraries/http_ex",
-    "libraries/indicatif_ex",
-    "libraries/polars_ex",
-    "libraries/prost_ex",
-    "libraries/rand_ex",
-    "libraries/semver_ex",
-    "libraries/serde_ex",
-    "libraries/logging_ex",
-    "libraries/once_cell_ex",
-    "libraries/strum_ex",
-    "libraries/tera_ex",
-    "libraries/typed_builder_ex",
-    "libraries/url_ex",
-    "libraries/uuid_ex",
-    "libraries/zip_ex"
+
+
+
+
+
 ]

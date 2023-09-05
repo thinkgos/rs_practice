@@ -1,5 +1,3 @@
-#![feature(is_some_and)]
-
 #[cfg(test)]
 mod tests {
     #[test]
