@@ -25,10 +25,6 @@ members = [
     "course/ax39_async_await",
     "course/ax40_commandline",
     "course/ax41_owner_borrow",
-    "course/ax50_serde",
-    "course/ax51_axum",
-    "course/ax52_chrono",
-    "course/ax53_log4",
 
     "standard/st01_default", # default trait
     "standard/st02_error",   # thiserror crate
@@ -40,6 +36,8 @@ members = [
     "standard/st08_result",  # result
     "standard/st09_time",    # time
     "standard/st10_env",
+
+    "exercises/exc01_clap",
 
     "libraries/lib01_chrono",
     "libraries/lib02_clap",
@@ -67,11 +65,7 @@ members = [
     "libraries/lib24_uuid",
     "libraries/lib25_zip",
     "libraries/lib26_cryptography",
+    "libraries/lib27_log4",
 
     "algorithms",
-
-
-
-
-
 ]
