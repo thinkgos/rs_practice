@@ -24,7 +24,7 @@ fn main() {
                                                // println!("{abc} {1}", abc = "def", 2); // 报错
 
     // 格式化参数
-    let v = 3.1415926;
+    let v = 3.14159261;
     // Display => 3.14
     println!("{:.2}", v);
     // Debug => 3.14

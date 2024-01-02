@@ -37,7 +37,9 @@ members = [
     "standard/st09_time",    # time
     "standard/st10_env",
 
+    "exercises/exc00",
     "exercises/exc01_clap",
+    "exercises/exc02_tokio",
 
     "libraries/lib01_chrono",
     "libraries/lib02_clap",
