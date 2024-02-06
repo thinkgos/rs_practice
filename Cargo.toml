@@ -41,6 +41,7 @@ members = [
     "exercises/exc01_clap",
     "exercises/exc02_tokio",
     "exercises/exc03_ratatui_counter",
+    "exercises/exc04_ratatui_json",
 
     "libraries/lib01_chrono",
     "libraries/lib02_clap",
@@ -70,5 +71,5 @@ members = [
     "libraries/lib26_cryptography",
     "libraries/lib27_log4",
 
-    "algorithms",
+    "algorithms", 
 ]

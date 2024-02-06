@@ -1237,6 +1237,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "exc04"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "crossterm 0.27.0",
+ "ratatui",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "eyre"
 version = "0.6.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
