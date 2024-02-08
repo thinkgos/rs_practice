@@ -36,7 +36,6 @@ impl App {
                 Constraint::Length(3),
             ])
             .split(f.size());
-
         self.render_title(f, chunks[0]);
         self.render_body(f, chunks[1]);
         self.render_footer(f, chunks[2]);
