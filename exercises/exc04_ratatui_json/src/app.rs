@@ -27,10 +27,14 @@ pub struct App {
 }
 impl App {
     pub fn new() -> App {
+        let mut p = HashMap::new();
+        p.insert("k1".to_string(), "v1".to_string());
+        p.insert("k2".to_string(), "v2".to_string());
+
         App {
             key_input: String::new(),
             value_input: String::new(),
-            pairs: HashMap::new(),
+            pairs: p,
             current_screen: CurrentScreen::Main,
             currently_editing: None,
         }
