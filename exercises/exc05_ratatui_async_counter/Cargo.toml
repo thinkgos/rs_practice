@@ -1,0 +1,14 @@
+[package]
+name = "exc05"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ratatui = { version ="0.26" }
+crossterm ={ version ="0.27", features = ["event-stream"]}
+anyhow = "1"
+tokio = { version = "1.32", features = ["full"] }
+tokio-util = "0.7"
+futures = "0.3"
