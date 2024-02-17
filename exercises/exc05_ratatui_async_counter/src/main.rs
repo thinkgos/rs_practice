@@ -6,7 +6,7 @@ pub mod event;
 pub mod tui;
 /// Widget renderer.
 pub mod ui;
-/// Application updater.
+/// Application updater.do
 pub mod update;
 
 use anyhow::Result;

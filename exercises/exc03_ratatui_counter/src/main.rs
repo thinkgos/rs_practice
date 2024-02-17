@@ -13,7 +13,6 @@ use anyhow::Result;
 use app::App;
 use event::{Event, EventHandler};
 use tui::Tui;
-use update::update;
 
 fn main() -> Result<()> {
     // Create an application.
@@ -27,7 +26,7 @@ fn main() -> Result<()> {
         // Handle events.
         match events.next()? {
             Event::Tick => {}
-            Event::Key(key_event) => update(&mut app, key_event),
+            Event::Key(key_event) => app.update(key_event),
             Event::Mouse(_) => {}
             Event::Resize(_, _) => {}
         };
