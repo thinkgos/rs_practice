@@ -9,6 +9,7 @@ use crossterm::{
 use ratatui::{backend::CrosstermBackend, Terminal};
 use tokio::sync::mpsc;
 use tokio::task;
+use tokio_util::sync::CancellationToken;
 
 pub type CrosstermTerminal = ratatui::Terminal<ratatui::backend::CrosstermBackend<std::io::Stderr>>;
 
@@ -21,38 +22,49 @@ pub struct Tui<E> {
     /// Interface to the Terminal.
     terminal: CrosstermTerminal,
     /// Event sender channel.
-    #[allow(dead_code)]
     pub event_tx: mpsc::UnboundedSender<E>,
     /// Event receiver channel.
     pub event_rx: mpsc::UnboundedReceiver<E>,
     /// Event handler thread.
     pub task: Option<task::JoinHandle<()>>,
-    pub frame_rate: f64,
-    pub tick_rate: f64,
+    cancellation_token: CancellationToken,
+    frame_rate: f64,
+    tick_rate: f64,
 }
 
 impl<E> Tui<E> {
     /// Constructs a new instance of [`Tui`].
     pub fn new() -> Result<Self> {
-        let (tx, rx) = mpsc::unbounded_channel();
+        let terminal = Terminal::new(CrosstermBackend::new(std::io::stderr()))?;
+        let (event_tx, event_rx) = mpsc::unbounded_channel();
+        let cancellation_token = CancellationToken::new();
         let mut tui = Self {
-            terminal: Terminal::new(CrosstermBackend::new(std::io::stderr()))?,
-            event_tx: tx,
-            event_rx: rx,
+            terminal,
+            event_tx,
+            event_rx,
             task: None,
-            frame_rate: 50.,
-            tick_rate: 50.,
+            cancellation_token,
+            frame_rate: 20.,
+            tick_rate: 4.,
         };
         tui.enter()?;
         Ok(tui)
     }
-
-    pub fn start_poll_event<F>(&mut self, f: F)
+    pub fn frame_rate(mut self, rate: f64) -> Self {
+        self.frame_rate = rate;
+        self
+    }
+    pub fn tick_rate(mut self, rate: f64) -> Self {
+        self.tick_rate = rate;
+        self
+    }
+    pub fn spawn_poll_event<F>(&mut self, f: F)
     where
-        F: FnOnce(f64, f64, mpsc::UnboundedSender<E>) -> task::JoinHandle<()>,
+        F: FnOnce(f64, f64, mpsc::UnboundedSender<E>, CancellationToken) -> task::JoinHandle<()>,
     {
         let tx = self.event_tx.clone();
-        self.task = Some(f(self.tick_rate, self.frame_rate, tx));
+        let cancellation_token = self.cancellation_token.clone();
+        self.task = Some(f(self.tick_rate, self.frame_rate, tx, cancellation_token));
     }
 
     /// Receive the next event from the handler thread.
@@ -121,12 +133,12 @@ impl<E> Tui<E> {
 
 impl<E> Drop for Tui<E> {
     fn drop(&mut self) {
+        self.cancellation_token.cancel();
         if let Err(e) = self.exit() {
             println!("Exit the terminal interface failed: {}", e);
         }
     }
 }
-
 impl<E> Deref for Tui<E> {
     type Target = CrosstermTerminal;
 
@@ -134,7 +146,6 @@ impl<E> Deref for Tui<E> {
         &self.terminal
     }
 }
-
 impl<E> DerefMut for Tui<E> {
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.terminal

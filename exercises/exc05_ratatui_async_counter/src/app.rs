@@ -1,9 +1,18 @@
 use anyhow::Result;
 
 use crate::{
-    event::{poll_event, Event},
     tui::Tui,
+    tui_event::{poll_event, Event},
 };
+
+// App actions
+pub enum Action {
+    Tick,
+    Increment,
+    Decrement,
+    Quit,
+    None,
+}
 
 /// Application.
 #[derive(Debug, Default)]
@@ -18,10 +27,8 @@ impl App {
     pub fn new() -> Self {
         Self::default()
     }
-
     /// Handles the tick event of the terminal.
     pub fn tick(&self) {}
-
     /// Set should_quit to true to quit the application.
     pub fn quit(&mut self) {
         self.should_quit = true;
@@ -37,13 +44,17 @@ impl App {
         }
     }
     pub async fn run(&mut self) -> Result<()> {
-        let mut tui = Tui::new()?;
-        tui.start_poll_event(poll_event);
+        let mut tui = Tui::new()?.frame_rate(20.0).tick_rate(4.0);
+        tui.spawn_poll_event(poll_event);
+
         while !self.should_quit {
-            // Render the user interface.
-            tui.draw(|frame| self.render_ui(frame))?;
+            let event = tui.recv_event().await?;
+
             // Handle events.
-            match tui.recv_event().await? {
+            match event {
+                Event::Render => {
+                    tui.draw(|frame| self.render_ui(frame))?;
+                }
                 Event::Tick => {}
                 Event::Key(key_event) => self.update(key_event),
                 Event::Mouse(_) => {}

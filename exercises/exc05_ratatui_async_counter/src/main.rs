@@ -1,13 +1,13 @@
 /// Application.
 pub mod app;
-/// Terminal events handler.
-pub mod event;
+/// Application updater.do
+pub mod app_update;
 /// Terminal user interface.
 pub mod tui;
+/// Terminal events handler.
+pub mod tui_event;
 /// Widget renderer.
 pub mod ui;
-/// Application updater.do
-pub mod update;
 
 use anyhow::Result;
 use app::App;
