@@ -1,9 +1,8 @@
 use anyhow::Result;
 
 use crate::{
-    event::{Event, EventHandler},
+    event::{poll_event, Event},
     tui::Tui,
-    update::update,
 };
 
 /// Application.
@@ -37,18 +36,19 @@ impl App {
             self.counter = res;
         }
     }
-    pub fn run(&mut self) -> Result<()> {
+    pub async fn run(&mut self) -> Result<()> {
         let mut tui = Tui::new()?;
-        let events = EventHandler::new(250);
+        tui.start_poll_event(poll_event);
         while !self.should_quit {
             // Render the user interface.
-            tui.draw(|frame| self.render(frame))?;
+            tui.draw(|frame| self.render_ui(frame))?;
             // Handle events.
-            match events.next()? {
+            match tui.recv_event().await? {
                 Event::Tick => {}
-                Event::Key(key_event) => update(self, key_event),
+                Event::Key(key_event) => self.update(key_event),
                 Event::Mouse(_) => {}
                 Event::Resize(_, _) => {}
+                _ => {}
             };
         }
         Ok(())

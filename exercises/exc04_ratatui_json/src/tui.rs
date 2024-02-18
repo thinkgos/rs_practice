@@ -1,4 +1,8 @@
-use std::{io, panic};
+use std::{
+    io,
+    ops::{Deref, DerefMut},
+    panic,
+};
 
 use anyhow::Result;
 use crossterm::{
@@ -28,38 +32,17 @@ impl Tui {
         Ok(tui)
     }
 
-    /// [`Draw`] the terminal interface by [`rendering`] the widgets.
-    ///
-    /// [`Draw`]: tui::Terminal::draw
-    /// [`rendering`]: crate::ui:render
-    pub fn draw<F>(&mut self, f: F) -> Result<()>
-    where
-        F: FnOnce(&mut Frame),
-    {
-        self.terminal.draw(f)?;
-        Ok(())
-    }
-
     /// Enter the terminal interface.
     ///
     /// It enables the raw mode and sets terminal properties.
     fn enter(&mut self) -> Result<()> {
         terminal::enable_raw_mode()?;
         crossterm::execute!(io::stderr(), EnterAlternateScreen, EnableMouseCapture)?;
-
-        // Define a custom panic hook to reset the terminal properties.
-        // This way, you won't have your terminal messed up if an unexpected error happens.
-        let panic_hook = panic::take_hook();
-        panic::set_hook(Box::new(move |panic| {
-            Self::reset().expect("failed to reset the terminal");
-            panic_hook(panic);
-        }));
-
+        Self::init_panic_hook();
         self.terminal.hide_cursor()?;
         self.terminal.clear()?;
         Ok(())
     }
-
     /// Exits the terminal interface.
     ///
     /// It disables the raw mode and reverts back the terminal properties.
@@ -68,13 +51,26 @@ impl Tui {
         self.terminal.show_cursor()?;
         Ok(())
     }
+    /// Initializes the terminal interface panic hook.
+    /// the terminal properties if unexpected errors occur
+    fn init_panic_hook() {
+        // Define a custom panic hook to reset the terminal properties.
+        // This way, you won't have your terminal messed up if an unexpected error happens.
+        let panic_hook = panic::take_hook();
+        panic::set_hook(Box::new(move |panic| {
+            Self::reset().expect("failed to reset the terminal");
+            panic_hook(panic);
+        }));
+    }
     /// Resets the terminal interface.
     ///
     /// This function is also used for the panic hook to revert
     /// the terminal properties if unexpected errors occur.
     fn reset() -> Result<()> {
-        terminal::disable_raw_mode()?;
-        crossterm::execute!(io::stderr(), LeaveAlternateScreen, DisableMouseCapture)?;
+        if terminal::is_raw_mode_enabled().unwrap_or(true) {
+            terminal::disable_raw_mode()?;
+            crossterm::execute!(io::stderr(), LeaveAlternateScreen, DisableMouseCapture)?;
+        }
         Ok(())
     }
 }
@@ -84,5 +80,19 @@ impl Drop for Tui {
         if let Err(e) = self.exit() {
             println!("Exit the terminal interface failed: {}", e);
         }
+    }
+}
+
+impl Deref for Tui {
+    type Target = CrosstermTerminal;
+
+    fn deref(&self) -> &Self::Target {
+        &self.terminal
+    }
+}
+
+impl DerefMut for Tui {
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.terminal
     }
 }

@@ -14,6 +14,7 @@ use app::App;
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    App::new().run()?;
+    let mut app = App::new();
+    app.run().await?;
     Ok(())
 }

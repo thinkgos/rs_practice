@@ -7,7 +7,7 @@ use ratatui::{
 use crate::app::App;
 
 impl App {
-    pub fn render(&mut self, f: &mut Frame) {
+    pub fn render_ui(&mut self, f: &mut Frame) {
         f.render_widget(
             Paragraph::new(format!(
                 "
