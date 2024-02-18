@@ -1255,6 +1255,7 @@ dependencies = [
  "anyhow",
  "crossterm 0.27.0",
  "futures",
+ "log",
  "ratatui",
  "tokio",
  "tokio-util",

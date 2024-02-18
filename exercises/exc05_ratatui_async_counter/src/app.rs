@@ -1,4 +1,7 @@
+use std::io;
+
 use anyhow::Result;
+use crossterm::event::{KeyCode, KeyEvent, KeyModifiers};
 
 use crate::{
     tui::Tui,
@@ -12,6 +15,24 @@ pub enum Action {
     Decrement,
     Quit,
     None,
+}
+
+impl From<KeyEvent> for Action {
+    fn from(key_event: KeyEvent) -> Self {
+        match key_event.code {
+            KeyCode::Esc | KeyCode::Char('q') => Self::Quit,
+            KeyCode::Char('c') | KeyCode::Char('C') => {
+                if key_event.modifiers == KeyModifiers::CONTROL {
+                    Self::Quit
+                } else {
+                    Self::None
+                }
+            }
+            KeyCode::Right | KeyCode::Char('j') => Self::Increment,
+            KeyCode::Left | KeyCode::Char('k') => Self::Decrement,
+            _ => Self::None,
+        }
+    }
 }
 
 /// Application.
@@ -43,9 +64,10 @@ impl App {
             self.counter = res;
         }
     }
+
     pub async fn run(&mut self) -> Result<()> {
-        let mut tui = Tui::new()?.frame_rate(20.0).tick_rate(4.0);
-        tui.spawn_poll_event(poll_event);
+        let mut tui = Tui::new(io::stderr())?.frame_rate(20.0).tick_rate(4.0);
+        tui.enter(poll_event)?;
 
         while !self.should_quit {
             let event = tui.recv_event().await?;
@@ -56,7 +78,9 @@ impl App {
                     tui.draw(|frame| self.render_ui(frame))?;
                 }
                 Event::Tick => {}
-                Event::Key(key_event) => self.update(key_event),
+                Event::Key(key_event) => {
+                    self.update(key_event.into());
+                }
                 Event::Mouse(_) => {}
                 Event::Resize(_, _) => {}
                 _ => {}
