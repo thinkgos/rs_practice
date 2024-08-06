@@ -1,0 +1,11 @@
+[package]
+name = "exc06"
+version = "0.1.0"
+edition = "2021"
+# build = "src/build.rs"
+
+[dependencies]
+anyhow = "1"
+
+[build-dependencies]
+bindgen = "0.69"

@@ -43,6 +43,7 @@ members = [
     "exercises/exc03_ratatui_counter",
     "exercises/exc04_ratatui_json",
     "exercises/exc05_ratatui_async_counter", 
+    "exercises/exc06_bzlib-sys",
 
     "libraries/lib01_chrono",
     "libraries/lib02_clap",
